@@ -20,7 +20,7 @@ public class App {
         UpdateEmployeeHandler updateEmployeeHandler = new UpdateEmployeeHandler();
         GetAllEmployeesHandler getAllEmployeesHandler = new GetAllEmployeesHandler();
 
-
+        //First Parameter route, second parameter is the functionality we want to call as that route is activated
         app.post("/employee", createEmployeeHandler);
         app.get("/employee/{id}", getEmployeeByIdHandler);
         app.get("/employee", getAllEmployeesHandler);

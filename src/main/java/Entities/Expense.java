@@ -12,7 +12,7 @@ public class Expense {
     private String Status;
 
     //Type of Expense
-    private String expense;
+
     //Type of Status
     private String Type;
 
@@ -20,13 +20,12 @@ public Expense () {
 
 }
 
-    public Expense(int id, int amount, String description, Employee employee, String status, String expense, String type) {
+    public Expense(int id, int amount, String description, Employee employee, String status, String type) {
         this.id = id;
         this.amount = amount;
         this.description = description;
         this.employee = employee;
         Status = status;
-        this.expense = expense;
         Type = type;
     }
 
@@ -70,13 +69,7 @@ public Expense () {
         Status = status;
     }
 
-    public String getExpense() {
-        return expense;
-    }
 
-    public void setExpense(String expense) {
-        this.expense = expense;
-    }
 
     public String getType() {
         return Type;
@@ -94,7 +87,6 @@ public Expense () {
                 ", description='" + description + '\'' +
                 ", employee=" + employee +
                 ", Status='" + Status + '\'' +
-                ", expense='" + expense + '\'' +
                 ", Type='" + Type + '\'' +
                 '}';
     }
