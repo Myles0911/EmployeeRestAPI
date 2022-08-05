@@ -1,13 +1,11 @@
-package Handlers;
+package handlers;
 
-import Entities.Employee;
+import entities.Employee;
 import app.App;
 import com.google.gson.Gson;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import org.jetbrains.annotations.NotNull;
-
-import java.lang.reflect.GenericSignatureFormatError;
 
 public class UpdateEmployeeHandler implements Handler {
     @Override
@@ -17,8 +15,10 @@ public class UpdateEmployeeHandler implements Handler {
         Employee employee = gson.fromJson(empJson, Employee.class);
         Employee updateEmployee = App.employeeService.modEmployee(employee);
         String json = gson.toJson(updateEmployee);
+        ctx.result(json);
 
-            ctx.result(json);
+
+
 
         }
     }

@@ -1,4 +1,6 @@
-package Entities;
+package entities;
+
+import java.util.Objects;
 
 public class Employee {
 
@@ -38,6 +40,19 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && Objects.equals(jobTitle, employee.jobTitle) && Objects.equals(name, employee.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, jobTitle, name);
     }
 
     @Override

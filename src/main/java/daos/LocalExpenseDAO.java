@@ -1,7 +1,6 @@
 package daos;
 
-import Entities.Employee;
-import Entities.Expense;
+import entities.Expense;
 
 import java.util.HashMap;
 import java.util.HashSet;

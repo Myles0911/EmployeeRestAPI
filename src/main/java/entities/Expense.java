@@ -1,4 +1,6 @@
-package Entities;
+package entities;
+
+import java.util.Objects;
 
 public class Expense {
 
@@ -9,24 +11,24 @@ public class Expense {
     private Employee employee;
 
     //Status of expense
-    private String Status;
+    private Status status;
 
     //Type of Expense
 
     //Type of Status
-    private String Type;
+    private Type type;
 
 public Expense () {
 
 }
 
-    public Expense(int id, int amount, String description, Employee employee, String status, String type) {
+    public Expense(int id, int amount, String description, Employee employee, Status status, Type type) {
         this.id = id;
         this.amount = amount;
         this.description = description;
         this.employee = employee;
-        Status = status;
-        Type = type;
+        this.status = status;
+        this.type = type;
     }
 
     public int getId() {
@@ -61,22 +63,33 @@ public Expense () {
         this.employee = employee;
     }
 
-    public String getStatus() {
-        return Status;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStatus(String status) {
-        Status = status;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-
-
-    public String getType() {
-        return Type;
+    public Type getType() {
+        return type;
     }
 
-    public void setType(String type) {
-        Type = type;
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expense expense = (Expense) o;
+        return id == expense.id && amount == expense.amount && Objects.equals(description, expense.description) && Objects.equals(employee, expense.employee) && status == expense.status && type == expense.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, amount, description, employee, status, type);
     }
 
     @Override
@@ -86,8 +99,8 @@ public Expense () {
                 ", amount=" + amount +
                 ", description='" + description + '\'' +
                 ", employee=" + employee +
-                ", Status='" + Status + '\'' +
-                ", Type='" + Type + '\'' +
+                ", status=" + status +
+                ", type=" + type +
                 '}';
     }
 }

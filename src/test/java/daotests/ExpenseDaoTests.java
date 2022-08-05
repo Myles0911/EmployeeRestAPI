@@ -1,13 +1,15 @@
 package daotests;
 
-import Entities.Employee;
-import Entities.Expense;
+import entities.Employee;
+import entities.Expense;
 import daos.ExpenseDAO;
 import daos.LocalExpenseDAO;
+import entities.Status;
+import entities.Type;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
-import java.util.Set;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ExpenseDaoTests {
 
@@ -40,7 +42,7 @@ public class ExpenseDaoTests {
     @Test
     @Order(1)
     void create_expense_Test() {
-        Expense expense = new Expense(0, 0, "Getting Groceries", new Employee(), "APPROVED", "Travel");
+        Expense expense = new Expense(0, 0, "Getting Groceries", new Employee(), Status.APPROVED, Type.FOOD);
         Expense savedExpense = expenseDAO.createExpense(expense);
         Assertions.assertEquals(0, savedExpense.getId());
         System.out.println(expense);
@@ -56,7 +58,7 @@ public class ExpenseDaoTests {
     @Test
     @Order(3)
     void updated_expense_Test() {
-        Expense expense2 = new Expense(1, 1, "Traveling to Spain", new Employee(), "APPROVED", "Travel");
+        Expense expense2 = new Expense(1, 1, "Traveling to Spain", new Employee(), Status.DENIED, Type.TRAVEL);
         expenseDAO.updateExpense(expense2);
         Expense expense = expenseDAO.getExpenseId(1);
         Assertions.assertEquals("Traveling to Spain", expense.getDescription());
@@ -72,9 +74,9 @@ public class ExpenseDaoTests {
     @Test
     @Order(3)
     void get_all_expenses_test() {
-    Expense expenseMK1 = new Expense(0, 0, "Traveling to France", new Employee(), "DENIED", "Travel");
-    Expense expenseMK2 = new Expense(3, 6, "Purchasing foodstuffs", new Employee(), "PENDING", "Food");
-    Expense expenseMK3 = new Expense(0, 5, "Injury", new Employee(), "APPROVED", "Misc");
+    Expense expenseMK1 = new Expense(0, 0, "Traveling to France", new Employee(), Status.APPROVED, Type.LODGING);
+    Expense expenseMK2 = new Expense(3, 6, "Purchasing foodstuffs", new Employee(), Status.PENDING, Type.FOOD);
+    Expense expenseMK3 = new Expense(0, 5, "Injury", new Employee(), Status.APPROVED, Type.MISC);
 
     expenseDAO.createExpense(expenseMK1);
         expenseDAO.createExpense(expenseMK2);

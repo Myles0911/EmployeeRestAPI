@@ -1,7 +1,8 @@
 package daos;
 
-import Entities.Employee;
+import entities.Employee;
 
+import java.util.List;
 import java.util.Set;
 
 public interface EmployeeDAO {

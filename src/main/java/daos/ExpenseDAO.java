@@ -1,6 +1,6 @@
 package daos;
 //wisAnt
-import Entities.Expense;
+import entities.Expense;
 
 import java.util.Set;
 

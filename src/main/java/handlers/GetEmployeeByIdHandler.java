@@ -1,6 +1,6 @@
-package Handlers;
+package handlers;
 
-import Entities.Employee;
+import entities.Employee;
 import app.App;
 import com.google.gson.Gson;
 import io.javalin.http.Context;

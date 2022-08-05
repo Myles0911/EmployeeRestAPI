@@ -1,6 +1,8 @@
 package services;
 
-import Entities.Employee;
+import entities.Employee;
+
+import java.util.Set;
 
 public interface EmployeeService {
 
@@ -10,7 +12,7 @@ public interface EmployeeService {
 
 
     //Read
-    Employee getAllEmployees();
+   Set<Employee> getAllEmployees();
     Employee getEmployeeByID(int id);
 
     //Update

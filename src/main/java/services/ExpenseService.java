@@ -1,19 +1,30 @@
 package services;
 
-import Entities.Expense;
+import entities.Employee;
+import entities.Expense;
+import entities.Status;
 
-import java.awt.print.Book;
+import java.util.List;
 
 public interface ExpenseService {
 
 
-    Expense saveExpense(Expense expense);
+    Expense savedExpense(Expense expense);
 
     Expense findExpenseByID(int id);
 
     boolean deleteExpense (int id);
 
-    Book modExpense (Expense expense);
+    Expense modExpense (Expense expense);
+
+    List<Expense> getAllExpenses();
+
+
+
+    Expense toEmployer(Employee employee);
+
+    Expense PendingStat (Status status);
+
 
 
 }

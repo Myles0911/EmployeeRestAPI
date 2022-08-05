@@ -1,15 +1,12 @@
 package daos;
 
-import Entities.Employee;
+import entities.Employee;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class LocalEmployeeDAO implements EmployeeDAO {
     private final Map<Integer, Employee> employee_table = new HashMap<Integer, Employee>();
-    private  int idCounter = 0;
+    private int idCounter = 0;
 
 
     @Override
@@ -21,8 +18,8 @@ public class LocalEmployeeDAO implements EmployeeDAO {
 
     @Override
     public Set<Employee> getAllEmployees() {
-      Set <Employee> employees = new HashSet<Employee>(this.employee_table.values());
-      return employees;
+        Set<Employee> employees = new HashSet<>(this.employee_table.values());
+        return employees;
     }
 
     @Override

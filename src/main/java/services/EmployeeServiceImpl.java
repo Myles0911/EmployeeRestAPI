@@ -1,8 +1,9 @@
 package services;
 
 import daos.EmployeeDAO;
-import Entities.Employee;
+import entities.Employee;
 
+import java.util.List;
 import java.util.Set;
 
 public class EmployeeServiceImpl implements EmployeeService {
@@ -26,9 +27,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getAllEmployees() {
+    public Set<Employee> getAllEmployees() {
         Set<Employee> employees = this.employeeDAO.getAllEmployees();
-        return (Employee) employees;
+        return employees;
     }
 
     @Override

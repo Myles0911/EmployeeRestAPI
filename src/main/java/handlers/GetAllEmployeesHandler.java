@@ -1,4 +1,4 @@
-package Handlers;
+package handlers;
 
 import app.App;
 import com.google.gson.Gson;
@@ -11,7 +11,7 @@ public class GetAllEmployeesHandler implements Handler {
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
     Gson gson = new Gson();
-    String json = gson.toJson(App.employeeService);
+    String json = gson.toJson(App.employeeService.getAllEmployees());
     ctx.result(json);
     }
 }
