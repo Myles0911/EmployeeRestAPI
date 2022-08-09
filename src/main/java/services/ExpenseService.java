@@ -5,6 +5,7 @@ import entities.Expense;
 import entities.Status;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ExpenseService {
 
@@ -17,13 +18,16 @@ public interface ExpenseService {
 
     Expense modExpense (Expense expense);
 
-    List<Expense> getAllExpenses();
 
+    Set<Expense> getAllExpenses();
 
+    Expense patchExpense (int id);
 
-    Expense toEmployer(Employee employee);
+    Expense expenseStatus(Status status);
 
-    Expense PendingStat (Status status);
+    boolean denyExpense(int id);
+
+    boolean approveExpense(int id);
 
 
 

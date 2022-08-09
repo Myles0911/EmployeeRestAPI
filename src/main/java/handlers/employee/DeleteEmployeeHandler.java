@@ -1,4 +1,4 @@
-package handlers;
+package handlers.employee;
 
 import app.App;
 import io.javalin.http.Context;

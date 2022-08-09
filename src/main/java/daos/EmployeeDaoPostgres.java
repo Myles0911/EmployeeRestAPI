@@ -47,6 +47,7 @@ public class EmployeeDaoPostgres implements EmployeeDAO {
                 employee.setId(rs.getInt("id"));
                 employee.setJobTitle(rs.getString("jobTitle"));
                 employee.setName(rs.getString("name"));
+                employees.add(employee);
             }
             return employees;
         } catch (SQLException e) {
@@ -86,6 +87,8 @@ public class EmployeeDaoPostgres implements EmployeeDAO {
             preparedStatement.setString(1, employee.getJobTitle());
             preparedStatement.setString(2, employee.getName());
             preparedStatement.setInt(3, employee.getId());
+
+            preparedStatement.executeUpdate();
             return employee;
         } catch(SQLException e) {
             e.printStackTrace();

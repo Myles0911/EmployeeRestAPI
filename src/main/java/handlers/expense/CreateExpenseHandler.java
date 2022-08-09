@@ -1,4 +1,4 @@
-package handlers;
+package handlers.expense;
 
 import app.App;
 import com.google.gson.Gson;
@@ -16,6 +16,7 @@ public class CreateExpenseHandler implements Handler {
         Expense expense = gson.fromJson(json, Expense.class);
         Expense getNewExpense = App.expenseService.savedExpense(expense);
         String expenseJson = gson.toJson(getNewExpense);
+        ctx.status(201);
         ctx.result(expenseJson);
 
     }

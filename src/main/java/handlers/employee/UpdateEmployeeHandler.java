@@ -1,4 +1,4 @@
-package handlers;
+package handlers.employee;
 
 import entities.Employee;
 import app.App;

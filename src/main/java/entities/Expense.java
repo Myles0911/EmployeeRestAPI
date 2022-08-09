@@ -3,18 +3,13 @@ package entities;
 import java.util.Objects;
 
 public class Expense {
-
+    //Employee id
     private int id;
+    //amount of expense
     private int amount;
     private String description;
-    //Who is making the expense
-    private Employee employee;
-
     //Status of expense
     private Status status;
-
-    //Type of Expense
-
     //Type of Status
     private Type type;
 
@@ -22,13 +17,13 @@ public Expense () {
 
 }
 
-    public Expense(int id, int amount, String description, Employee employee, Status status, Type type) {
+    public Expense(int id, int amount, String description, Status status, Type type) {
         this.id = id;
         this.amount = amount;
         this.description = description;
-        this.employee = employee;
         this.status = status;
         this.type = type;
+
     }
 
     public int getId() {
@@ -55,14 +50,6 @@ public Expense () {
         this.description = description;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -84,12 +71,12 @@ public Expense () {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Expense expense = (Expense) o;
-        return id == expense.id && amount == expense.amount && Objects.equals(description, expense.description) && Objects.equals(employee, expense.employee) && status == expense.status && type == expense.type;
+        return id == expense.id && amount == expense.amount && Objects.equals(description, expense.description) && status == expense.status && type == expense.type;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, amount, description, employee, status, type);
+        return Objects.hash(id, amount, description, status, type);
     }
 
     @Override
@@ -98,11 +85,12 @@ public Expense () {
                 "id=" + id +
                 ", amount=" + amount +
                 ", description='" + description + '\'' +
-                ", employee=" + employee +
                 ", status=" + status +
                 ", type=" + type +
                 '}';
     }
 }
+
+
 
 
