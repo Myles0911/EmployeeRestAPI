@@ -49,7 +49,7 @@ public class EmployeeDaoTests {
     @Test
     @Order(2)
     void get_employee_By_id_test() {
-        Employee employee = employeeDAO.getEmployeeById(1);
+        Employee employee = employeeDAO.getEmployeeById(0);
         Assertions.assertEquals("Java Developer", employee.getJobTitle());
 
     }
@@ -57,10 +57,10 @@ public class EmployeeDaoTests {
     @Test
     @Order(3)
     void update_employee_test() {
-        Employee employee2 = new Employee(1, "Software Engineer", "Emile Lyonhelm");
+        Employee employee2 = new Employee(1, "Python Developer", "Jackson");
        employeeDAO.updateEmployee(employee2);
         Employee employee = employeeDAO.getEmployeeById(1);
-        Assertions.assertEquals("Software Engineer", employee.getJobTitle());
+        Assertions.assertEquals("Python Developer", employee.getJobTitle());
 
 
     }

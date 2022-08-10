@@ -20,7 +20,7 @@ public class ExpenseServiceimpl implements ExpenseService {
     @Override
     public Expense savedExpense(Expense expense) {
         if (expense.getAmount() <= 0) {
-            throw new RuntimeException(("The expense Cannot be negative"));
+            throw new RuntimeException(("The Expense amount cannot be negative"));
         }
         if (expense.getDescription().length() == 0) {
             throw new RuntimeException(("The Expense must have a description"));
@@ -45,19 +45,18 @@ public class ExpenseServiceimpl implements ExpenseService {
 
     @Override
     public Expense modExpense(Expense expense) {
-        if (expense.getAmount() <= 0) {
-            throw new RuntimeException(("The expense Cannot be negative"));
+        if (expense.getAmount() == 0) {
+            throw new RuntimeException(("There must be an expense"));
         }
-        if (expense.getDescription().length() == 0) {
-            throw new RuntimeException(("The Expense must have a description"));
+        if (expense.getId() == 0) {
+            throw new RuntimeException(("The Expense must have identification"));
         }
         return this.expenseDAO.updateExpense(expense);
     }
 
     @Override
     public Set<Expense> getAllExpenses() {
-        Set<Expense> expenses = this.expenseDAO.getAllExpenses();
-        return expenses;
+        return this.expenseDAO.getAllExpenses();
 
     }
 

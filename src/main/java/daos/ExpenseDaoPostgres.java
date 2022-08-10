@@ -12,6 +12,7 @@ import java.util.Set;
 
 public class ExpenseDaoPostgres implements ExpenseDAO {
 
+
     @Override
     public Expense createExpense(Expense expense) {
         try(Connection conn = connectionUtil.ConnectionUtil.createConnection()) {
@@ -123,7 +124,6 @@ public class ExpenseDaoPostgres implements ExpenseDAO {
             return false;
         }
     }
-
 
 
 

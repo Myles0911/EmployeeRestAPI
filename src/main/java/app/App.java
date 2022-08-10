@@ -33,27 +33,27 @@ public class App {
         GetSpecificExpenseHandler getSpecificExpenseHandler = new GetSpecificExpenseHandler();
         DeleteExpenseHandler deleteExpenseHandler = new DeleteExpenseHandler();
         UpdateExpenseHandler updateExpenseHandler = new UpdateExpenseHandler();
-        //PatchExpenseHandler patchExpenseHandler = new PatchExpenseHandler();
+        PatchExpenseHandler patchExpenseHandler = new PatchExpenseHandler();
         GetAllExpenseHandler getAllExpenseHandler = new GetAllExpenseHandler();
         //GetExpenseStatusHandler getExpenseStatusHandler = new GetExpenseStatusHandler();
 
 
             //First Parameter route, second parameter is the functionality we want to call as that route is activated
-            app.post("/employee", createEmployeeHandler);
-            app.get("/employee/{id}", getEmployeeByIdHandler);
-            app.get("/employee", getAllEmployeesHandler);
-            app.delete("/employee/{id}", deleteEmployeeHandler);
-            app.put("/employee/{id}", updateEmployeeHandler);
+            app.post("/employees", createEmployeeHandler);
+            app.get("/employees/{id}", getEmployeeByIdHandler);
+            app.get("/employees", getAllEmployeesHandler);
+            app.delete("/employees/{id}", deleteEmployeeHandler);
+            app.put("/employees/{id}", updateEmployeeHandler);
 
 
-        app.post("/expense",createExpenseHandler);
-        app.get("/expense ",getAllExpenseHandler);
-      //  app.get("/expense?status=pending ", null);
-        app.get("/expense/{id} ", getSpecificExpenseHandler);
-        app.put("/expense/{id} ", updateExpenseHandler);
-      //  app.patch("/expense/{id}/approve", null);
-     //   app.patch("/expense/{id}/deny", null);
-        app.delete("/expense/{id}", deleteExpenseHandler);
+        app.post("/expenses",createExpenseHandler);
+        app.get("/expenses ",getAllExpenseHandler);
+      //  app.get("/expenses?status=pending ", null);
+        app.get("/expenses/{id} ", getSpecificExpenseHandler);
+        app.put("/expenses/{id} ", updateExpenseHandler);
+        app.patch("/expenses/{id}/approve", patchExpenseHandler);
+        app.patch("/expenses/{id}/deny", patchExpenseHandler);
+        app.delete("/expenses/{id}", deleteExpenseHandler);
 
 
        // app.get("/employee/{id}/expense", null);

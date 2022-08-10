@@ -13,9 +13,10 @@ public class Expense {
     //Type of Status
     private Type type;
 
-public Expense () {
 
-}
+    public Expense() {
+
+    }
 
     public Expense(int id, int amount, String description, Status status, Type type) {
         this.id = id;
@@ -23,7 +24,6 @@ public Expense () {
         this.description = description;
         this.status = status;
         this.type = type;
-
     }
 
     public int getId() {
@@ -71,7 +71,7 @@ public Expense () {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Expense expense = (Expense) o;
-        return id == expense.id && amount == expense.amount && Objects.equals(description, expense.description) && status == expense.status && type == expense.type;
+        return id == expense.id && amount == expense.amount && description.equals(expense.description) && status == expense.status && type == expense.type;
     }
 
     @Override
@@ -90,7 +90,4 @@ public Expense () {
                 '}';
     }
 }
-
-
-
 

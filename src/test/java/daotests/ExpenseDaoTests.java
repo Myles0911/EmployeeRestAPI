@@ -31,7 +31,7 @@ public class ExpenseDaoTests {
                     "\tdescription varchar(100),\n" +
                     "\tstatus Varchar(100),\n" +
                     "\ttype Varchar(100)\n" +
-                    ");";
+                    ";\n";
 
             Statement statement = conn.createStatement();
             statement.execute(sql);
@@ -48,26 +48,26 @@ public class ExpenseDaoTests {
     @Test
     @Order(1)
     void create_expense_Test() {
-        Expense expense = new Expense(0, 0, "Getting Groceries", Status.APPROVED, Type.FOOD);
+        Expense expense = new Expense(1, 500, "Getting Groceries", Status.APPROVED, Type.FOOD);
         Expense savedExpense = expenseDAO.createExpense(expense);
-        Assertions.assertEquals(0, savedExpense.getId());
+        Assertions.assertEquals(1, savedExpense.getId());
         System.out.println(expense);
     }
 
     @Test
     @Order(2)
     void get_expense_by_id_test() {
-        Expense expense = expenseDAO.getExpenseId(1);
+        Expense expense = expenseDAO.getExpenseId(0);
         Assertions.assertEquals("Getting Groceries", expense.getDescription());
     }
 
     @Test
     @Order(3)
     void updated_expense_Test() {
-        Expense expense2 = new Expense(1, 1, "Traveling to Spain", Status.DENIED, Type.TRAVEL);
+        Expense expense2 = new Expense(1, 2500, "Flight to Spain", Status.DENIED, Type.TRAVEL);
         expenseDAO.updateExpense(expense2);
         Expense expense = expenseDAO.getExpenseId(1);
-        Assertions.assertEquals("Traveling to Spain", expense.getDescription());
+        Assertions.assertEquals("Flight to Spain", expense.getDescription());
     }
 
     @Test
